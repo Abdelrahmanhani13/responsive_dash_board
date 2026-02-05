@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dash_board/models/drawer_item_model.dart';
 import 'package:responsive_dash_board/utils/app_assets.dart';
+import 'package:responsive_dash_board/widgets/active_and_inactive_drawer_item.dart';
 import 'package:responsive_dash_board/widgets/drawer_item_list_view.dart';
 import 'package:responsive_dash_board/widgets/user_info_list_tile.dart';
 
@@ -10,20 +12,42 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
-      child: Column(
-        children: [
-          SizedBox(height: 50),
-          Card(
-            elevation: 0,
-            color: Color(0xffFAFAFA),
-            child: UserInfoListTile(
-              image: Assets.imagesAvatar2,
-              title: 'Lekan Okeowo',
-              subtitle: 'demo@gmail.com',
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(child: SizedBox(height: 50)),
+          SliverToBoxAdapter(
+            child: Card(
+              elevation: 0,
+              color: Color(0xffFAFAFA),
+              child: UserInfoListTile(
+                image: Assets.imagesAvatar2,
+                title: 'Lekan Okeowo',
+                subtitle: 'demo@gmail.com',
+              ),
             ),
           ),
-          SizedBox(height: 15),
+          SliverToBoxAdapter(child: SizedBox(height: 15)),
           DrawerItemsListView(),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Expanded(child: SizedBox()),
+                InactiveDrawerItem(
+                  drawerItemModel: DrawerItemModel(
+                    title: 'Setting system',
+                    image: Assets.imagesSettings,
+                  ),
+                ),
+                InactiveDrawerItem(
+                  drawerItemModel: DrawerItemModel(
+                    title: 'Logout account',
+                    image: Assets.imagesLogout,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
