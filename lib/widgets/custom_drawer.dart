@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dash_board/models/drawer_item_model.dart';
 import 'package:responsive_dash_board/utils/app_assets.dart';
+import 'package:responsive_dash_board/widgets/drawer_item.dart';
+import 'package:responsive_dash_board/widgets/drawer_item_list_view.dart';
 import 'package:responsive_dash_board/widgets/user_info_list_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -10,7 +13,7 @@ class CustomDrawer extends StatelessWidget {
     return Material(
       color: Colors.white,
       child: Column(
-        children: const [
+        children: [
           SizedBox(height: 50),
           Card(
             elevation: 0,
@@ -21,6 +24,8 @@ class CustomDrawer extends StatelessWidget {
               subtitle: 'demo@gmail.com',
             ),
           ),
+          SizedBox(height: 15),
+          DrawerItemsListView(),
         ],
       ),
     );
