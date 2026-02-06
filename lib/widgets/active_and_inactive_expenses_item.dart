@@ -3,6 +3,21 @@ import 'package:responsive_dash_board/models/all_expenses_items_model.dart';
 import 'package:responsive_dash_board/utils/app_styles.dart';
 import 'package:responsive_dash_board/widgets/all_expenses_item_header_item.dart';
 
+class _InfoText extends StatelessWidget {
+  const _InfoText({required this.text, required this.style});
+
+  final String text;
+  final TextStyle style;
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text(text, style: style),
+    );
+  }
+}
+
 class InActiveAllExpensessItem extends StatelessWidget {
   const InActiveAllExpensessItem({super.key, required this.itemModel});
 
@@ -15,7 +30,7 @@ class InActiveAllExpensessItem extends StatelessWidget {
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          side: const BorderSide(width: 1, color: Color(0xFFF1F1F1)),
+          side: const BorderSide(color: Color(0xFFF1F1F1)),
           borderRadius: BorderRadius.circular(12),
         ),
       ),
@@ -24,20 +39,11 @@ class InActiveAllExpensessItem extends StatelessWidget {
         children: [
           AllExpensessItemHeader(image: itemModel.image),
           const SizedBox(height: 34),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(itemModel.title, style: AppStyles.styleMedium16),
-          ),
+          _InfoText(text: itemModel.title, style: AppStyles.styleMedium16),
           const SizedBox(height: 8),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(itemModel.date, style: AppStyles.styleRegular14),
-          ),
+          _InfoText(text: itemModel.date, style: AppStyles.styleRegular14),
           const SizedBox(height: 16),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(itemModel.price, style: AppStyles.styleSemiBold24),
-          ),
+          _InfoText(text: itemModel.price, style: AppStyles.styleSemiBold24),
         ],
       ),
     );
@@ -55,44 +61,32 @@ class ActiveAllExpensessItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: ShapeDecoration(
         color: const Color(0xFF4DB7F2),
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(width: 1, color: Color(0xFF4DB7F2)),
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AllExpensessItemHeader(
-            imageBackground: Colors.white.withOpacity(0.10000000149011612),
+            imageBackground: Colors.white.withOpacity(0.1),
             imageColor: Colors.white,
             image: itemModel.image,
           ),
           const SizedBox(height: 34),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              itemModel.title,
-              style: AppStyles.styleMedium16.copyWith(color: Colors.white),
-            ),
+          _InfoText(
+            text: itemModel.title,
+            style: AppStyles.styleMedium16.copyWith(color: Colors.white),
           ),
           const SizedBox(height: 8),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              itemModel.date,
-              style: AppStyles.styleRegular14.copyWith(
-                color: const Color(0xFFFAFAFA),
-              ),
+          _InfoText(
+            text: itemModel.date,
+            style: AppStyles.styleRegular14.copyWith(
+              color: const Color(0xFFFAFAFA),
             ),
           ),
           const SizedBox(height: 16),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              itemModel.price,
-              style: AppStyles.styleSemiBold24.copyWith(color: Colors.white),
-            ),
+          _InfoText(
+            text: itemModel.price,
+            style: AppStyles.styleSemiBold24.copyWith(color: Colors.white),
           ),
         ],
       ),

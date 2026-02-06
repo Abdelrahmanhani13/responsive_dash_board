@@ -10,9 +10,13 @@ class AllExpensessItemHeader extends StatelessWidget {
   });
 
   final String image;
-  final Color? imageBackground, imageColor;
+  final Color? imageBackground;
+  final Color? imageColor;
+
   @override
   Widget build(BuildContext context) {
+    final isActive = imageColor != null;
+
     return Row(
       children: [
         Flexible(
@@ -29,7 +33,7 @@ class AllExpensessItemHeader extends StatelessWidget {
                   child: SvgPicture.asset(
                     image,
                     colorFilter: ColorFilter.mode(
-                      imageColor ?? const Color(0xff4EB7F2),
+                      imageColor ?? const Color(0xFF4EB7F2),
                       BlendMode.srcIn,
                     ),
                   ),
@@ -40,10 +44,11 @@ class AllExpensessItemHeader extends StatelessWidget {
         ),
         const Spacer(),
         Transform.rotate(
-          angle: -1.57079633 * 2,
+          angle: -1.57079633 * 2, // = -π radians = 180 degrees
           child: Icon(
             Icons.arrow_back_ios_new_outlined,
-            color: imageColor == null ? const Color(0xFF064061) : Colors.white,
+            color: isActive ? Colors.white : const Color(0xFF064061),
+            size: 20,
           ),
         ),
       ],
