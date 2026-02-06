@@ -1,11 +1,9 @@
 class UserInfoModel {
-  final String title;
-  final String image;
-  final String subtitle;
+  final String image, title, subTitle;
 
-  UserInfoModel({
-    required this.title,
+  const UserInfoModel({
     required this.image,
-    required this.subtitle,
+    required this.title,
+    required this.subTitle,
   });
 }

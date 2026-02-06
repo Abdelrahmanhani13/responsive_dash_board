@@ -3,6 +3,7 @@ import 'package:responsive_dash_board/models/drawer_item_model.dart';
 import 'package:responsive_dash_board/models/user_info_model.dart';
 import 'package:responsive_dash_board/utils/app_assets.dart';
 import 'package:responsive_dash_board/widgets/active_and_inactive_drawer_item.dart';
+import 'package:responsive_dash_board/widgets/drawer_item.dart';
 import 'package:responsive_dash_board/widgets/drawer_item_list_view.dart';
 import 'package:responsive_dash_board/widgets/user_info_list_tile.dart';
 
@@ -11,43 +12,40 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      child: CustomScrollView(
+    return Container(
+      width: MediaQuery.sizeOf(context).width * .7,
+      color: const Color.fromRGBO(255, 255, 255, 1),
+      child: const CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 50)),
           SliverToBoxAdapter(
-            child: Card(
-              elevation: 0,
-              color: Color(0xffFAFAFA),
-              child: UserInfoListTile(
-                userInfoModel: UserInfoModel(
-                  title: 'Lekan Okeowo',
-                  image: Assets.imagesAvatar1,
-                  subtitle: 'demo@gmail.com',
-                ),
+            child: UserInfoListTile(
+              userInfoModel: UserInfoModel(
+                image: Assets.imagesAvatar1,
+                title: 'Lekan Okeowo',
+                subTitle: 'demo@gmail.com',
               ),
             ),
           ),
-          SliverToBoxAdapter(child: SizedBox(height: 15)),
+          SliverToBoxAdapter(child: SizedBox(height: 8)),
           DrawerItemsListView(),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
               children: [
-                Expanded(child: SizedBox()),
-                InactiveDrawerItem(
+                Expanded(child: SizedBox(height: 20)),
+                InActiveDrawerItem(
                   drawerItemModel: DrawerItemModel(
                     title: 'Setting system',
                     image: Assets.imagesSettings,
                   ),
                 ),
-                InactiveDrawerItem(
+                InActiveDrawerItem(
                   drawerItemModel: DrawerItemModel(
                     title: 'Logout account',
                     image: Assets.imagesLogout,
                   ),
                 ),
+                SizedBox(height: 48),
               ],
             ),
           ),
