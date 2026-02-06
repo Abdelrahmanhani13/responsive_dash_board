@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/models/drawer_item_model.dart';
+import 'package:responsive_dash_board/models/user_info_model.dart';
 import 'package:responsive_dash_board/utils/app_assets.dart';
 import 'package:responsive_dash_board/widgets/active_and_inactive_drawer_item.dart';
 import 'package:responsive_dash_board/widgets/drawer_item_list_view.dart';
@@ -20,9 +21,11 @@ class CustomDrawer extends StatelessWidget {
               elevation: 0,
               color: Color(0xffFAFAFA),
               child: UserInfoListTile(
-                image: Assets.imagesAvatar2,
-                title: 'Lekan Okeowo',
-                subtitle: 'demo@gmail.com',
+                userInfoModel: UserInfoModel(
+                  title: 'Lekan Okeowo',
+                  image: Assets.imagesAvatar1,
+                  subtitle: 'demo@gmail.com',
+                ),
               ),
             ),
           ),
