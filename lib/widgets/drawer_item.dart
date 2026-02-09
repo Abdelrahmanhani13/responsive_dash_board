@@ -9,9 +9,12 @@ class DrawerItem extends StatelessWidget {
   final DrawerItemModel drawerItemModel;
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: SvgPicture.asset(drawerItemModel.image),
-      title: Text(drawerItemModel.title, style: AppStyles.styleBold16),
+    return Material(
+      color: Colors.transparent,
+      child: ListTile(
+        leading: SvgPicture.asset(drawerItemModel.image),
+        title: Text(drawerItemModel.title, style: AppStyles.styleBold16),
+      ),
     );
   }
 }
