@@ -8,7 +8,7 @@ class AllExpensesListViewBody extends StatelessWidget {
 
   static const List<AllExpensesItemModel> items = [
     AllExpensesItemModel(
-      image: Assets.imagesBalance,
+      image: Assets.imagesWalletAccount,
       title: 'Balance',
       subTitle: 'April 2022',
       price: r'$20,129',
