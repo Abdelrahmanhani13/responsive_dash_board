@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/utils/app_styles.dart';
-import 'package:responsive_dash_board/widgets/my_cards_page_view.dart';
 import 'package:responsive_dash_board/widgets/page_view_and_dots_indicator.dart';
 
 class MyCardSection extends StatelessWidget {
