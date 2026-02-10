@@ -9,7 +9,10 @@ class LatestTransaction extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Latest Transaction', style: AppStyles.styleMedium16),
+        Align(
+          alignment: AlignmentGeometry.centerLeft,
+          child: Text('Latest Transaction', style: AppStyles.styleMedium16),
+        ),
         SizedBox(height: 12),
         LatestTransactionListView(),
       ],

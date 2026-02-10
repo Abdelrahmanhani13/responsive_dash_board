@@ -28,8 +28,8 @@ class LatestTransactionListView extends StatelessWidget {
     return SizedBox(
       height: 80,
       child: ListView.builder(
-        itemCount: items.length,
         scrollDirection: Axis.horizontal,
+        itemCount: items.length,
         itemBuilder: (context, index) {
           return IntrinsicWidth(
             child: UserInfoListTile(userInfoModel: items[index]),
