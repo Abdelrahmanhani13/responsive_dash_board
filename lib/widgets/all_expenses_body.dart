@@ -21,7 +21,10 @@ class AllExpensesBody extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(child: SvgPicture.asset(allExpensesItemModel.image)),
+              CircleAvatar(
+                backgroundColor: Color(0xffFAFAFA),
+                child: SvgPicture.asset(allExpensesItemModel.image),
+              ),
               Spacer(),
               Transform.rotate(
                 angle: -1.57079633 * 2,
