@@ -11,6 +11,7 @@ class ResponsiveDashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: ScrollBehavior().copyWith(scrollbars: false),
       debugShowCheckedModeBanner: false,
       title: 'Responsive Dashboard',
       home: DashboardView(),
