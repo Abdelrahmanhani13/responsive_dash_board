@@ -33,11 +33,20 @@ class AllExpensesBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: 34),
-          Text(allExpensesItemModel.title, style: AppStyles.styleSemiBold16),
+          Text(
+            allExpensesItemModel.title,
+            style: AppStyles.styleSemiBold16(context),
+          ),
           SizedBox(height: 8),
-          Text(allExpensesItemModel.subTitle, style: AppStyles.styleRegular14),
+          Text(
+            allExpensesItemModel.subTitle,
+            style: AppStyles.styleRegular14(context),
+          ),
           SizedBox(height: 16),
-          Text(allExpensesItemModel.price, style: AppStyles.styleSemiBold24),
+          Text(
+            allExpensesItemModel.price,
+            style: AppStyles.styleSemiBold24(context),
+          ),
         ],
       ),
     );
