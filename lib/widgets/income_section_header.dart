@@ -7,23 +7,25 @@ class IncomeSectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text('Income', style: AppStyles.styleSemiBold20(context)),
-        Spacer(),
         Container(
-          padding: EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Color(0xffF1F1F1)),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: ShapeDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
+            shape: RoundedRectangleBorder(
+              side: const BorderSide(width: 1, color: Color(0xFFF1F1F1)),
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
           child: Row(
             children: [
               Text('Monthly', style: AppStyles.styleMedium16(context)),
-              SizedBox(width: 20),
+              const SizedBox(width: 16),
               Transform.rotate(
                 angle: -1.57079633,
-                child: Icon(Icons.arrow_back_ios, color: Color(0xff064061)),
+                child: const Icon(Icons.arrow_back_ios_new),
               ),
             ],
           ),
